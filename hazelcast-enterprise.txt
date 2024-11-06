@@ -22,7 +22,7 @@ Github:
 ---
 Version: 5.5.1
 Date: 09/13/2024
-Download_ZIP_URL: https://repository.hazelcast.com/download/hazelcast-enterprise/hazelcast-enterprise-5.5.1.zip
+Download_ZIP_URL: https://repository.hazelcast.com/download/hazelcast-enterprise/hazelcast-enterprise-5.5.1-slim.zip
 Download_ZIP_Size: 739 MB
 Download_slim_ZIP_URL: https://repository.hazelcast.com/download/hazelcast-enterprise/hazelcast-enterprise-5.5.1-slim.zip
 Download_slim_ZIP_Size: 46 MB
