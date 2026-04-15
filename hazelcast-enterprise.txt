@@ -21,7 +21,7 @@ Github:
 ========== Previous Stable
 ---
 Version: 5.6.1
-Date: ${TBC_RELEASE_DATE}
+Date: 04/15/2026
 Download_ZIP_URL: https://repository.hazelcast.com/download/hazelcast-enterprise/hazelcast-enterprise-5.6.1.zip
 Download_ZIP_Size: 886 MB
 Download_slim_ZIP_URL: https://repository.hazelcast.com/download/hazelcast-enterprise/hazelcast-enterprise-5.6.1-slim.zip
