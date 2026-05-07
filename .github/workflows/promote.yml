@@ -79,7 +79,7 @@ jobs:
           export TBC_RELEASE_DATE=$(date +%m/%d/%Y)
 
           find . -type f -name "*.txt" -print0 | while IFS= read -r -d '' file; do
-            envsubst < "${file}" > "${file}.tmp" && mv "${file}.tmp" "${file}"
+            envsubst '$TBC_RELEASE_DATE' < "${file}" > "${file}.tmp" && mv "${file}.tmp" "${file}"
           done
 
       - name: 'Commit changes to PR #${{ steps.find-pr.outputs.PR_NUMBER }}'
