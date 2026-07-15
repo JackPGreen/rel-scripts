@@ -109,19 +109,30 @@ def update_hazelcast_metadata(
 
     # Assume the first "version"
     content = file_path.read_text()
-    current_stable_section = content.split(current_stable_header, 1)[1].split(
-        previous_stable_header
-    )[0]
+    current_stable_section = (
+        content.split(current_stable_header, 1)[1]
+        .split("---" + os.linesep + previous_stable_header + os.linesep, 1)[0]
+        .strip()
+    )
     latest = is_latest(version_metadata.version, current_stable_section)
     logging.debug("latest=%s", latest)
 
     if latest:
         # Example - https://github.com/hazelcast/rel-scripts/commit/d5728f98dc00da5e54455f41fbe1583768a11803
-        # Demote current stable -> previous stable
-        content = content.replace(current_stable_header, previous_stable_header, 1)
-        # Prepend new current stable
+        # Extract previous block(s)
+        previous_stable_section = content.split(
+            "---" + os.linesep + previous_stable_header + os.linesep, 1
+        )[1]
+        # Update sequence
         content = os.linesep.join(
-            [current_stable_header, version_block, "---", content]
+            [
+                current_stable_header,
+                version_block,
+                "---",
+                previous_stable_header,
+                current_stable_section,
+                previous_stable_section,
+            ]
         )
         file_path.write_text(content)
     else:
