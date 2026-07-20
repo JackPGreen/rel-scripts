@@ -61,7 +61,9 @@ def test_update_hazelcast_metadata_latest_demotes_current_stable(tmp_path):
     previous_stable_header = header + "Previous Stable"
     content = (
         f"{current_stable_header}\n"
-        "---\nVersion: 5.3.0\n"
+        "---\n"
+        "Version: 5.3.0\n"
+        "---\n"
         f"{previous_stable_header}\n"
         "---\nVersion: 5.2.0\n"
     )
@@ -84,7 +86,9 @@ def test_update_hazelcast_metadata_not_latest_inserts_under_previous(tmp_path):
     current_stable_header = header + "Current Stable"
     content = (
         f"{current_stable_header}\n"
-        "---\nVersion: 5.4.0\n"
+        "---\n"
+        "Version: 5.4.0\n"
+        "---\n"
         f"{previous_stable_header}\n"
         "---\nVersion: 5.3.0\n"
     )
